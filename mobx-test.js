@@ -17,7 +17,7 @@ const increment = action(() => {
 let runs = 0
 autorun(() => {
 	runs += 1
-	console.log(`autorun ${runs}`)
+	console.log(`autorun ${runs} ${data}`)
 })
 
 // expecting autorun to have been run once for initialization
