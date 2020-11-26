@@ -5,19 +5,19 @@ const {assert, getFailureCount} = makeAssertionContext()
 configure({})
 
 // create mobx observable
-let data = observable.box(0)
+const data = observable({count: 0})
 
 // create a mobx action that increments the observable
 const increment = action(() => {
-	data += 1
-	console.log(`increment data ${data}`)
+	data.count += 1
+	console.log(`increment data ${data.count}`)
 })
 
 // establish a mobx autorun which counts number of runs
 let runs = 0
 autorun(() => {
 	runs += 1
-	console.log(`autorun ${runs} ${data}`)
+	console.log(`autorun ${runs} ${data.count}`)
 })
 
 // expecting autorun to have been run once for initialization
